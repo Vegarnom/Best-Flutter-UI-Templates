@@ -28,6 +28,12 @@ class HotelAppTheme {
       primary: primaryColor,
       secondary: secondaryColor,
     );
+    double calculateDiscount(double price, double discount) {
+      if (discount <= 0 || discount > 100) {
+        throw Exception("Discount is invalid");
+      }
+      return price * discount / 100;
+    }
     final ThemeData base = ThemeData.light();
     return base.copyWith(
       colorScheme: colorScheme,
